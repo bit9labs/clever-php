@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **credentials** | [**\Clever\Model\Credentials**](Credentials.md) |  | [optional] 
 **district** | **string** |  | [optional] 
 **email** | **string** |  | [optional] 
+**ext** | **object** |  | [optional] 
 **id** | **string** |  | [optional] 
 **last_modified** | **string** |  | [optional] 
 **name** | [**\Clever\Model\Name**](Name.md) |  | [optional] 

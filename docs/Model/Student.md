@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **dob** | **string** |  | [optional] 
 **ell_status** | **string** |  | [optional] 
 **email** | **string** |  | [optional] 
+**enrollments** | [**\Clever\Model\SchoolEnrollment[]**](SchoolEnrollment.md) |  | [optional] 
+**ext** | **object** |  | [optional] 
 **gender** | **string** |  | [optional] 
 **grade** | **string** |  | [optional] 
 **graduation_year** | **string** |  | [optional] 

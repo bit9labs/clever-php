@@ -1,6 +1,6 @@
 # Clever\DataApi
 
-All URIs are relative to *https://api.clever.com/v2.0*
+All URIs are relative to *https://api.clever.com/v2.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -69,15 +69,19 @@ Returns a specific student contact
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getContact($id);
+    $result = $apiInstance->getContact($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getContact: ', $e->getMessage(), PHP_EOL;
@@ -107,7 +111,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getContacts**
-> \Clever\Model\ContactsResponse getContacts($limit, $starting_after, $ending_before)
+> \Clever\Model\ContactsResponse getContacts($limit, $starting_after, $ending_before, $count)
 
 
 
@@ -118,17 +122,22 @@ Returns a list of student contacts
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
+$count = "count_example"; // string | 
 
 try {
-    $result = $api_instance->getContacts($limit, $starting_after, $ending_before);
+    $result = $apiInstance->getContacts($limit, $starting_after, $ending_before, $count);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getContacts: ', $e->getMessage(), PHP_EOL;
@@ -143,6 +152,7 @@ Name | Type | Description  | Notes
  **limit** | **int**|  | [optional]
  **starting_after** | **string**|  | [optional]
  **ending_before** | **string**|  | [optional]
+ **count** | **string**|  | [optional]
 
 ### Return type
 
@@ -171,18 +181,22 @@ Returns the contacts for a student
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
 
 try {
-    $result = $api_instance->getContactsForStudent($id, $limit, $starting_after, $ending_before);
+    $result = $apiInstance->getContactsForStudent($id, $limit, $starting_after, $ending_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getContactsForStudent: ', $e->getMessage(), PHP_EOL;
@@ -226,15 +240,19 @@ Returns a specific course
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getCourse($id);
+    $result = $apiInstance->getCourse($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getCourse: ', $e->getMessage(), PHP_EOL;
@@ -275,14 +293,19 @@ Returns the course for a section
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
+// Configure OAuth2 access token for authorization: oauth
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
-
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getCourseForSection($id);
+    $result = $apiInstance->getCourseForSection($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getCourseForSection: ', $e->getMessage(), PHP_EOL;
@@ -312,7 +335,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getCourses**
-> \Clever\Model\CoursesResponse getCourses($limit, $starting_after, $ending_before)
+> \Clever\Model\CoursesResponse getCourses($limit, $starting_after, $ending_before, $count)
 
 
 
@@ -323,17 +346,22 @@ Returns a list of courses
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
+$count = "count_example"; // string | 
 
 try {
-    $result = $api_instance->getCourses($limit, $starting_after, $ending_before);
+    $result = $apiInstance->getCourses($limit, $starting_after, $ending_before, $count);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getCourses: ', $e->getMessage(), PHP_EOL;
@@ -348,6 +376,7 @@ Name | Type | Description  | Notes
  **limit** | **int**|  | [optional]
  **starting_after** | **string**|  | [optional]
  **ending_before** | **string**|  | [optional]
+ **count** | **string**|  | [optional]
 
 ### Return type
 
@@ -376,15 +405,19 @@ Returns a specific district
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getDistrict($id);
+    $result = $apiInstance->getDistrict($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getDistrict: ', $e->getMessage(), PHP_EOL;
@@ -425,15 +458,19 @@ Returns a specific district admin
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getDistrictAdmin($id);
+    $result = $apiInstance->getDistrictAdmin($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getDistrictAdmin: ', $e->getMessage(), PHP_EOL;
@@ -463,7 +500,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getDistrictAdmins**
-> \Clever\Model\DistrictAdminsResponse getDistrictAdmins($limit, $starting_after, $ending_before)
+> \Clever\Model\DistrictAdminsResponse getDistrictAdmins($limit, $starting_after, $ending_before, $count)
 
 
 
@@ -474,17 +511,22 @@ Returns a list of district admins
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
+$count = "count_example"; // string | 
 
 try {
-    $result = $api_instance->getDistrictAdmins($limit, $starting_after, $ending_before);
+    $result = $apiInstance->getDistrictAdmins($limit, $starting_after, $ending_before, $count);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getDistrictAdmins: ', $e->getMessage(), PHP_EOL;
@@ -499,6 +541,7 @@ Name | Type | Description  | Notes
  **limit** | **int**|  | [optional]
  **starting_after** | **string**|  | [optional]
  **ending_before** | **string**|  | [optional]
+ **count** | **string**|  | [optional]
 
 ### Return type
 
@@ -527,15 +570,19 @@ Returns the district for a student contact
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getDistrictForContact($id);
+    $result = $apiInstance->getDistrictForContact($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getDistrictForContact: ', $e->getMessage(), PHP_EOL;
@@ -576,15 +623,19 @@ Returns the district for a course
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getDistrictForCourse($id);
+    $result = $apiInstance->getDistrictForCourse($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getDistrictForCourse: ', $e->getMessage(), PHP_EOL;
@@ -625,15 +676,19 @@ Returns the district for a district admin
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getDistrictForDistrictAdmin($id);
+    $result = $apiInstance->getDistrictForDistrictAdmin($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getDistrictForDistrictAdmin: ', $e->getMessage(), PHP_EOL;
@@ -674,15 +729,19 @@ Returns the district for a school
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getDistrictForSchool($id);
+    $result = $apiInstance->getDistrictForSchool($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getDistrictForSchool: ', $e->getMessage(), PHP_EOL;
@@ -723,15 +782,19 @@ Returns the district for a school admin
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getDistrictForSchoolAdmin($id);
+    $result = $apiInstance->getDistrictForSchoolAdmin($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getDistrictForSchoolAdmin: ', $e->getMessage(), PHP_EOL;
@@ -772,15 +835,19 @@ Returns the district for a section
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getDistrictForSection($id);
+    $result = $apiInstance->getDistrictForSection($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getDistrictForSection: ', $e->getMessage(), PHP_EOL;
@@ -821,15 +888,19 @@ Returns the district for a student
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getDistrictForStudent($id);
+    $result = $apiInstance->getDistrictForStudent($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getDistrictForStudent: ', $e->getMessage(), PHP_EOL;
@@ -870,15 +941,19 @@ Returns the district for a teacher
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getDistrictForTeacher($id);
+    $result = $apiInstance->getDistrictForTeacher($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getDistrictForTeacher: ', $e->getMessage(), PHP_EOL;
@@ -919,15 +994,19 @@ Returns the district for a term
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getDistrictForTerm($id);
+    $result = $apiInstance->getDistrictForTerm($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getDistrictForTerm: ', $e->getMessage(), PHP_EOL;
@@ -957,7 +1036,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getDistricts**
-> \Clever\Model\DistrictsResponse getDistricts()
+> \Clever\Model\DistrictsResponse getDistricts($count)
 
 
 
@@ -968,14 +1047,19 @@ Returns a list of districts
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$count = "count_example"; // string | 
 
 try {
-    $result = $api_instance->getDistricts();
+    $result = $apiInstance->getDistricts($count);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getDistricts: ', $e->getMessage(), PHP_EOL;
@@ -984,7 +1068,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **count** | **string**|  | [optional]
 
 ### Return type
 
@@ -1013,15 +1100,19 @@ Returns a specific school
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getSchool($id);
+    $result = $apiInstance->getSchool($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getSchool: ', $e->getMessage(), PHP_EOL;
@@ -1062,15 +1153,19 @@ Returns a specific school admin
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getSchoolAdmin($id);
+    $result = $apiInstance->getSchoolAdmin($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getSchoolAdmin: ', $e->getMessage(), PHP_EOL;
@@ -1100,7 +1195,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getSchoolAdmins**
-> \Clever\Model\SchoolAdminsResponse getSchoolAdmins($limit, $starting_after, $ending_before)
+> \Clever\Model\SchoolAdminsResponse getSchoolAdmins($limit, $starting_after, $ending_before, $count)
 
 
 
@@ -1111,17 +1206,22 @@ Returns a list of school admins
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
+$count = "count_example"; // string | 
 
 try {
-    $result = $api_instance->getSchoolAdmins($limit, $starting_after, $ending_before);
+    $result = $apiInstance->getSchoolAdmins($limit, $starting_after, $ending_before, $count);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getSchoolAdmins: ', $e->getMessage(), PHP_EOL;
@@ -1136,6 +1236,7 @@ Name | Type | Description  | Notes
  **limit** | **int**|  | [optional]
  **starting_after** | **string**|  | [optional]
  **ending_before** | **string**|  | [optional]
+ **count** | **string**|  | [optional]
 
 ### Return type
 
@@ -1164,15 +1265,19 @@ Returns the school for a section
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getSchoolForSection($id);
+    $result = $apiInstance->getSchoolForSection($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getSchoolForSection: ', $e->getMessage(), PHP_EOL;
@@ -1213,15 +1318,19 @@ Returns the primary school for a student
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getSchoolForStudent($id);
+    $result = $apiInstance->getSchoolForStudent($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getSchoolForStudent: ', $e->getMessage(), PHP_EOL;
@@ -1262,15 +1371,19 @@ Retrieves school info for a teacher.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getSchoolForTeacher($id);
+    $result = $apiInstance->getSchoolForTeacher($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getSchoolForTeacher: ', $e->getMessage(), PHP_EOL;
@@ -1300,7 +1413,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getSchools**
-> \Clever\Model\SchoolsResponse getSchools($limit, $starting_after, $ending_before)
+> \Clever\Model\SchoolsResponse getSchools($limit, $starting_after, $ending_before, $count)
 
 
 
@@ -1311,17 +1424,22 @@ Returns a list of schools
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
+$count = "count_example"; // string | 
 
 try {
-    $result = $api_instance->getSchools($limit, $starting_after, $ending_before);
+    $result = $apiInstance->getSchools($limit, $starting_after, $ending_before, $count);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getSchools: ', $e->getMessage(), PHP_EOL;
@@ -1336,6 +1454,7 @@ Name | Type | Description  | Notes
  **limit** | **int**|  | [optional]
  **starting_after** | **string**|  | [optional]
  **ending_before** | **string**|  | [optional]
+ **count** | **string**|  | [optional]
 
 ### Return type
 
@@ -1364,18 +1483,22 @@ Returns the schools for a school admin
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
 
 try {
-    $result = $api_instance->getSchoolsForSchoolAdmin($id, $limit, $starting_after, $ending_before);
+    $result = $apiInstance->getSchoolsForSchoolAdmin($id, $limit, $starting_after, $ending_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getSchoolsForSchoolAdmin: ', $e->getMessage(), PHP_EOL;
@@ -1419,18 +1542,22 @@ Returns the schools for a student
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
 
 try {
-    $result = $api_instance->getSchoolsForStudent($id, $limit, $starting_after, $ending_before);
+    $result = $apiInstance->getSchoolsForStudent($id, $limit, $starting_after, $ending_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getSchoolsForStudent: ', $e->getMessage(), PHP_EOL;
@@ -1474,18 +1601,22 @@ Returns the schools for a teacher
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
 
 try {
-    $result = $api_instance->getSchoolsForTeacher($id, $limit, $starting_after, $ending_before);
+    $result = $apiInstance->getSchoolsForTeacher($id, $limit, $starting_after, $ending_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getSchoolsForTeacher: ', $e->getMessage(), PHP_EOL;
@@ -1529,15 +1660,19 @@ Returns a specific section
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getSection($id);
+    $result = $apiInstance->getSection($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getSection: ', $e->getMessage(), PHP_EOL;
@@ -1567,7 +1702,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getSections**
-> \Clever\Model\SectionsResponse getSections($limit, $starting_after, $ending_before)
+> \Clever\Model\SectionsResponse getSections($limit, $starting_after, $ending_before, $count)
 
 
 
@@ -1578,17 +1713,22 @@ Returns a list of sections
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
+$count = "count_example"; // string | 
 
 try {
-    $result = $api_instance->getSections($limit, $starting_after, $ending_before);
+    $result = $apiInstance->getSections($limit, $starting_after, $ending_before, $count);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getSections: ', $e->getMessage(), PHP_EOL;
@@ -1603,6 +1743,7 @@ Name | Type | Description  | Notes
  **limit** | **int**|  | [optional]
  **starting_after** | **string**|  | [optional]
  **ending_before** | **string**|  | [optional]
+ **count** | **string**|  | [optional]
 
 ### Return type
 
@@ -1631,18 +1772,22 @@ Returns the sections for a Courses
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
 
 try {
-    $result = $api_instance->getSectionsForCourse($id, $limit, $starting_after, $ending_before);
+    $result = $apiInstance->getSectionsForCourse($id, $limit, $starting_after, $ending_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getSectionsForCourse: ', $e->getMessage(), PHP_EOL;
@@ -1686,18 +1831,22 @@ Returns the sections for a school
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
 
 try {
-    $result = $api_instance->getSectionsForSchool($id, $limit, $starting_after, $ending_before);
+    $result = $apiInstance->getSectionsForSchool($id, $limit, $starting_after, $ending_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getSectionsForSchool: ', $e->getMessage(), PHP_EOL;
@@ -1741,18 +1890,22 @@ Returns the sections for a student
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
 
 try {
-    $result = $api_instance->getSectionsForStudent($id, $limit, $starting_after, $ending_before);
+    $result = $apiInstance->getSectionsForStudent($id, $limit, $starting_after, $ending_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getSectionsForStudent: ', $e->getMessage(), PHP_EOL;
@@ -1796,18 +1949,22 @@ Returns the sections for a teacher
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
 
 try {
-    $result = $api_instance->getSectionsForTeacher($id, $limit, $starting_after, $ending_before);
+    $result = $apiInstance->getSectionsForTeacher($id, $limit, $starting_after, $ending_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getSectionsForTeacher: ', $e->getMessage(), PHP_EOL;
@@ -1851,18 +2008,22 @@ Returns the sections for a term
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
 
 try {
-    $result = $api_instance->getSectionsForTerm($id, $limit, $starting_after, $ending_before);
+    $result = $apiInstance->getSectionsForTerm($id, $limit, $starting_after, $ending_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getSectionsForTerm: ', $e->getMessage(), PHP_EOL;
@@ -1906,15 +2067,19 @@ Returns a specific student
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getStudent($id);
+    $result = $apiInstance->getStudent($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getStudent: ', $e->getMessage(), PHP_EOL;
@@ -1944,7 +2109,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getStudents**
-> \Clever\Model\StudentsResponse getStudents($limit, $starting_after, $ending_before)
+> \Clever\Model\StudentsResponse getStudents($limit, $starting_after, $ending_before, $count)
 
 
 
@@ -1955,17 +2120,22 @@ Returns a list of students
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
+$count = "count_example"; // string | 
 
 try {
-    $result = $api_instance->getStudents($limit, $starting_after, $ending_before);
+    $result = $apiInstance->getStudents($limit, $starting_after, $ending_before, $count);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getStudents: ', $e->getMessage(), PHP_EOL;
@@ -1980,6 +2150,7 @@ Name | Type | Description  | Notes
  **limit** | **int**|  | [optional]
  **starting_after** | **string**|  | [optional]
  **ending_before** | **string**|  | [optional]
+ **count** | **string**|  | [optional]
 
 ### Return type
 
@@ -2008,18 +2179,22 @@ Returns the students for a student contact
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
 
 try {
-    $result = $api_instance->getStudentsForContact($id, $limit, $starting_after, $ending_before);
+    $result = $apiInstance->getStudentsForContact($id, $limit, $starting_after, $ending_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getStudentsForContact: ', $e->getMessage(), PHP_EOL;
@@ -2063,18 +2238,22 @@ Returns the students for a school
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
 
 try {
-    $result = $api_instance->getStudentsForSchool($id, $limit, $starting_after, $ending_before);
+    $result = $apiInstance->getStudentsForSchool($id, $limit, $starting_after, $ending_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getStudentsForSchool: ', $e->getMessage(), PHP_EOL;
@@ -2118,18 +2297,22 @@ Returns the students for a section
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
 
 try {
-    $result = $api_instance->getStudentsForSection($id, $limit, $starting_after, $ending_before);
+    $result = $apiInstance->getStudentsForSection($id, $limit, $starting_after, $ending_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getStudentsForSection: ', $e->getMessage(), PHP_EOL;
@@ -2173,18 +2356,22 @@ Returns the students for a teacher
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
 
 try {
-    $result = $api_instance->getStudentsForTeacher($id, $limit, $starting_after, $ending_before);
+    $result = $apiInstance->getStudentsForTeacher($id, $limit, $starting_after, $ending_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getStudentsForTeacher: ', $e->getMessage(), PHP_EOL;
@@ -2228,15 +2415,19 @@ Returns a specific teacher
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getTeacher($id);
+    $result = $apiInstance->getTeacher($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getTeacher: ', $e->getMessage(), PHP_EOL;
@@ -2277,15 +2468,19 @@ Returns the primary teacher for a section
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getTeacherForSection($id);
+    $result = $apiInstance->getTeacherForSection($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getTeacherForSection: ', $e->getMessage(), PHP_EOL;
@@ -2315,7 +2510,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getTeachers**
-> \Clever\Model\TeachersResponse getTeachers($limit, $starting_after, $ending_before)
+> \Clever\Model\TeachersResponse getTeachers($limit, $starting_after, $ending_before, $count)
 
 
 
@@ -2326,17 +2521,22 @@ Returns a list of teachers
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
+$count = "count_example"; // string | 
 
 try {
-    $result = $api_instance->getTeachers($limit, $starting_after, $ending_before);
+    $result = $apiInstance->getTeachers($limit, $starting_after, $ending_before, $count);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getTeachers: ', $e->getMessage(), PHP_EOL;
@@ -2351,6 +2551,7 @@ Name | Type | Description  | Notes
  **limit** | **int**|  | [optional]
  **starting_after** | **string**|  | [optional]
  **ending_before** | **string**|  | [optional]
+ **count** | **string**|  | [optional]
 
 ### Return type
 
@@ -2379,18 +2580,22 @@ Returns the teachers for a school
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
 
 try {
-    $result = $api_instance->getTeachersForSchool($id, $limit, $starting_after, $ending_before);
+    $result = $apiInstance->getTeachersForSchool($id, $limit, $starting_after, $ending_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getTeachersForSchool: ', $e->getMessage(), PHP_EOL;
@@ -2434,18 +2639,22 @@ Returns the teachers for a section
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
 
 try {
-    $result = $api_instance->getTeachersForSection($id, $limit, $starting_after, $ending_before);
+    $result = $apiInstance->getTeachersForSection($id, $limit, $starting_after, $ending_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getTeachersForSection: ', $e->getMessage(), PHP_EOL;
@@ -2489,18 +2698,22 @@ Returns the teachers for a student
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
 
 try {
-    $result = $api_instance->getTeachersForStudent($id, $limit, $starting_after, $ending_before);
+    $result = $apiInstance->getTeachersForStudent($id, $limit, $starting_after, $ending_before);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getTeachersForStudent: ', $e->getMessage(), PHP_EOL;
@@ -2544,15 +2757,19 @@ Returns a specific term
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getTerm($id);
+    $result = $apiInstance->getTerm($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getTerm: ', $e->getMessage(), PHP_EOL;
@@ -2593,15 +2810,19 @@ Returns the term for a section
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = "id_example"; // string | 
 
 try {
-    $result = $api_instance->getTermForSection($id);
+    $result = $apiInstance->getTermForSection($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getTermForSection: ', $e->getMessage(), PHP_EOL;
@@ -2631,7 +2852,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getTerms**
-> \Clever\Model\TermsResponse getTerms($limit, $starting_after, $ending_before)
+> \Clever\Model\TermsResponse getTerms($limit, $starting_after, $ending_before, $count)
 
 
 
@@ -2642,17 +2863,22 @@ Returns a list of terms
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Clever\Api\DataApi();
-
 // Configure OAuth2 access token for authorization: oauth
-$api_instance->getConfig()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Clever\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+$apiInstance = new Clever\Api\DataApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $limit = 56; // int | 
 $starting_after = "starting_after_example"; // string | 
 $ending_before = "ending_before_example"; // string | 
+$count = "count_example"; // string | 
 
 try {
-    $result = $api_instance->getTerms($limit, $starting_after, $ending_before);
+    $result = $apiInstance->getTerms($limit, $starting_after, $ending_before, $count);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataApi->getTerms: ', $e->getMessage(), PHP_EOL;
@@ -2667,6 +2893,7 @@ Name | Type | Description  | Notes
  **limit** | **int**|  | [optional]
  **starting_after** | **string**|  | [optional]
  **ending_before** | **string**|  | [optional]
+ **count** | **string**|  | [optional]
 
 ### Return type
 
