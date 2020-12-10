@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Clever
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace Clever\Model;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \Clever\ObjectSerializer;
 
 /**
  * SchoolEnrollment Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  Clever
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
